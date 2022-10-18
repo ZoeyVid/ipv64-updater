@@ -71,8 +71,8 @@ jobs:
       - name: show version
         if: ${{ github.ref == 'refs/heads/develop' }}
         run: | 
-         docker run --rm --entrypoint git ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest --version
-         docker run --rm --entrypoint git ghcr.io/${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest --version
+         docker run --rm --entrypoint git ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.ref_name }} --version
+         docker run --rm --entrypoint git ghcr.io/${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.ref_name }} --version
 
       - name: Set PR-Number (PR)
         if: ${{ github.event_name == 'pull_request' }}
