@@ -1,0 +1,10 @@
+version: "3"
+services:
+    git-repo:
+        container_name: git-updater-git-repo
+        image: sancraftdev/git-updater:latest
+        restart: always
+        environment:
+        - "TZ=Europe/Berlin"
+        volumes:
+        - "/path/to/git-repo:/src"
