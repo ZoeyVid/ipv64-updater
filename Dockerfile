@@ -1,4 +1,4 @@
-FROM alpine:3.16.3
+FROM alpine:20221110
 
 RUN apk add --no-cache ca-certificates git
 RUN echo "while true; do git fetch origin; git reset --hard origin; sleep 30; done" | tee /usr/local/bin/update && chmod +x /usr/local/bin/update
