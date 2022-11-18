@@ -8,4 +8,5 @@ RUN chmod +x /usr/local/bin/update
 WORKDIR /src
 RUN git config --global --add safe.directory /src
 
+HEALTHCHECK CMD update
 ENTRYPOINT update
