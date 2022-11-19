@@ -6,5 +6,5 @@ RUN apk upgrade --no-cache && \
     git config --global --add safe.directory /src && \
     chmod +x /usr/local/bin/update
 
-ENTRYPOINT ["update"]
+ENTRYPOINT ["sh", "update"]
 HEALTHCHECK CMD update
