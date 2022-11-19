@@ -6,4 +6,4 @@ RUN apk upgrade --no-cache && \
     chmod +x /usr/local/bin/update
 
 ENTRYPOINT ["update"]
-HEALTHCHECK CMD ["update"]
+HEALTHCHECK CMD update
