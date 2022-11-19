@@ -4,6 +4,7 @@ RUN apk upgrade --no-cache && \
     apk add --no-cache ca-certificates wget tzdata git && \
     git config --global --add safe.directory /src && \
     chmod +x /usr/local/bin/update
+ENV GIT_DIR=/src/.git
 
 ENTRYPOINT ["update"]
-HEALTHCHECK CMD sh update
+HEALTHCHECK CMD git fetch origin && git reset --hard origin
