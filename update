@@ -1,7 +1,6 @@
 #!/bin/sh
 
 while true; do 
-cd /src
 git fetch origin
 git reset --hard origin
 sleep 30
