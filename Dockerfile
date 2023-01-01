@@ -8,4 +8,4 @@ RUN apk upgrade --no-cache && \
 ENV GIT_DIR=/src/.git
 WORKDIR /src
 ENTRYPOINT ["update"]
-HEALTHCHECK CMD git fetch origin && git reset --hard origin
+HEALTHCHECK CMD git fetch origin && git reset --hard origin || exit 1
