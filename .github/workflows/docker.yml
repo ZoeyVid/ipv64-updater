@@ -5,12 +5,12 @@ on:
     branches:    
       - develop
     paths:
-      - update
+      - update.sh
       - Dockerfile
       - .github/workflows/docker.yml
   pull_request:
     paths:
-      - update
+      - update.sh
       - Dockerfile
       - .github/workflows/docker.yml
   workflow_dispatch:
