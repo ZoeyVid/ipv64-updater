@@ -1,11 +1,9 @@
 FROM alpine:20230208
-COPY update.sh /usr/local/bin/update.sh
 RUN apk upgrade --no-cache && \
     apk add --no-cache ca-certificates wget tzdata git && \
-    git config --global --add safe.directory /src && \
-    chmod +x /usr/local/bin/update.sh
+    git config --global --add safe.directory /src
 
 ENV GIT_DIR=/src/.git
 WORKDIR /src
-ENTRYPOINT ["update.sh"]
-HEALTHCHECK CMD git fetch origin && git reset --hard origin || exit 1
+ENTRYPOINT while true; do (git fetch origin && git reset --hard origin && sleep 30) || exit 1; done || exit 1
+HEALTHCHECK CMD (git fetch origin && git reset --hard origin) || exit 1
