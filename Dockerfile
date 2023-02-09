@@ -1,4 +1,4 @@
-FROM alpine:20221110
+FROM alpine:20230208
 COPY update.sh /usr/local/bin/update.sh
 RUN apk upgrade --no-cache && \
     apk add --no-cache ca-certificates wget tzdata git && \
