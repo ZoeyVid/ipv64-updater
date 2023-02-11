@@ -1,6 +1,6 @@
 FROM alpine:3.17.2
 RUN apk upgrade --no-cache && \
-    apk add --no-cache ca-certificates wget tzdata git && \
+    apk add --no-cache ca-certificates tzdata git && \
     git config --global --add safe.directory /src
 
 ENV GIT_DIR=/src/.git
