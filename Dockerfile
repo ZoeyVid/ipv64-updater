@@ -5,5 +5,5 @@ RUN apk upgrade --no-cache && \
 
 ENV GIT_DIR=/src/.git
 WORKDIR /src
-ENTRYPOINT while true; do (git fetch origin && git reset --hard origin && sleep 30) || exit 1; done || exit 1
-HEALTHCHECK CMD (git fetch origin > /dev/null 2>&1 && git reset --hard origin > /dev/null 2>&1) || exit 1
+ENTRYPOINT while true; do (rm -rf /src/.git/index.lock && git fetch origin && git reset --hard origin && sleep 30) || exit 1; done || exit 1
+HEALTHCHECK CMD (rm -rf /src/.git/index.lock && git fetch origin > /dev/null 2>&1 && git reset --hard origin > /dev/null 2>&1) || exit 1
