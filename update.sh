@@ -55,6 +55,7 @@ if [ "$IPv4" = "false" ] && [ "$IPv6" = "false" ]; then
     sleep inf
 fi
 
+
 while true; do
     if [ "$IPv4" = "true" ]; then
         curl -sLS4 https://ipv64.net/update.php?key="$DUK"
