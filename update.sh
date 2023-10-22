@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -z "$TZ" ] || ! echo "$TZ" | grep -q "^[A-Za-z/]\+$"; then
+    echo "TZ is unset or invalid."
+    sleep inf
+fi
+
 if ! echo "$IPv4" | grep -q "^true$\|^false$"; then
     echo "IPv4 needs to be true or false."
     sleep inf
