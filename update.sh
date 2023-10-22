@@ -5,15 +5,45 @@ if [ -z "$TZ" ] || ! echo "$TZ" | grep -q "^[A-Za-z/]\+$"; then
     sleep inf
 fi
 
-if ! echo "$IPv4" | grep -q "^true$\|^false$"; then
-    echo "IPv4 needs to be true or false."
+if [ -z "$DUK" ] || ! echo "$DUK" | grep -q "^[0-9a-z]\+$"; then
+    echo "DUK is unset or invalid, it can consist of lower letters a-z and numbers 0-9."
     sleep inf
 fi
 
-if ! echo "$IPv6" | grep -q "^true$\|^false$"; then
-    echo "IPv6 needs to be true or false."
-    sleep inf
+
+if [ "$IPv4" = "false" ] || [ "$(curl -s4 ipv64.net; echo $?)" != "7" ]; then
+    if ! echo "$IPv4" | grep -q "^true$\|^false$"; then
+        echo "IPv4 needs to be true or false."
+        sleep inf
+    fi
+else
+  if [ "$IPv4" != "false" ]; then
+    if ! echo "$IPv4" | grep -q "^true$\|^false$"; then
+      echo "IPv4 needs to be true or false."
+      sleep inf
+    fi
+    echo "IPv4 does not work, disabling it."
+    export IPv4="false"
+  fi
 fi
+
+
+if [ "$IPv6" = "false" ] || [ "$(curl -s6 ipv64.net; echo $?)" != "7" ]; then
+    if ! echo "$IPv6" | grep -q "^true$\|^false$"; then
+        echo "IPv6 needs to be true or false."
+        sleep inf
+    fi
+else
+  if [ "$IPv6" != "false" ]; then
+    if ! echo "$IPv6" | grep -q "^true$\|^false$"; then
+      echo "IPv6 needs to be true or false."
+      sleep inf
+    fi
+    echo "IPv6 does not work, disabling it."
+    export IPv6="false"
+  fi
+fi
+
 
 if ! echo "$UI" | grep -q "^[0-9]\+[smhd]\?$"; then
     echo "UI needs to be a number which can be followed by one of the chars s, m, h or d."
@@ -21,7 +51,7 @@ if ! echo "$UI" | grep -q "^[0-9]\+[smhd]\?$"; then
 fi
 
 if [ "$IPv4" = "false" ] && [ "$IPv6" = "false" ]; then
-    echo "You've disabled IPv4 and IPv6, which does not work."
+    echo "IPv4 and IPv6 disabled, stopping."
     sleep inf
 fi
 
