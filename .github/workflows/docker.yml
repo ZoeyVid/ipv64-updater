@@ -4,13 +4,15 @@ on:
     branches:
       - develop
     paths:
-      - update.sh
       - Dockerfile
+      - update.sh
+      - healthcheck.sh
       - .github/workflows/docker.yml
   pull_request:
     paths:
-      - update.sh
       - Dockerfile
+      - update.sh
+      - healthcheck.sh
       - .github/workflows/docker.yml
   workflow_dispatch:
 jobs:
