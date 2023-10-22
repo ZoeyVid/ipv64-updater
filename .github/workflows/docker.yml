@@ -4,10 +4,12 @@ on:
     branches:
       - develop
     paths:
+      - udpate.sh
       - Dockerfile
       - .github/workflows/docker.yml
   pull_request:
     paths:
+      - udpate.sh
       - Dockerfile
       - .github/workflows/docker.yml
   workflow_dispatch:
