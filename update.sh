@@ -5,8 +5,8 @@ if [ -z "$TZ" ] || ! echo "$TZ" | grep -q "^[A-Za-z/]\+$"; then
     sleep inf
 fi
 
-if [ -z "$DUK" ] || ! echo "$DUK" | grep -q "^[0-9a-z]\+$"; then
-    echo "DUK is unset or invalid, it can consist of lower letters a-z and numbers 0-9."
+if [ -z "$DUK" ] || ! echo "$DUK" | grep -q "^[A-Za-z0-9]\+$"; then
+    echo "DUK is unset or invalid, it can consist of upper letters A-Z, lower letters a-z and numbers 0-9."
     sleep inf
 fi
 
