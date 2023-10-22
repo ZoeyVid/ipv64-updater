@@ -58,10 +58,10 @@ fi
 
 while true; do
     if [ "$IPv4" = "true" ]; then
-        curl -sLS4 https://ipv64.net/update.php?key="$DUK" | tee /tmp/IPv4.json
+        curl -sLS4 https://ipv64.net/update.php?key="$DUK"
     fi
     if [ "$IPv6" = "true" ]; then
-        curl -sLS6 https://ipv64.net/update.php?key="$DUK" | tee /tmp/IPv6.json
+        curl -sLS6 https://ipv64.net/update.php?key="$DUK"
     fi
 
     sleep "$UI"
