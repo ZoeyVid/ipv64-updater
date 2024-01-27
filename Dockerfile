@@ -1,4 +1,4 @@
-FROM alpine:3.19.0
+FROM alpine:3.19.1
 COPY update.sh /usr/local/bin/update.sh
 COPY healthcheck.sh /usr/local/bin/healthcheck.sh
 RUN apk add --no-cache ca-certificates tzdata tini curl jq && \
