@@ -1,6 +1,6 @@
 # ipv64-updater
 
-just use this compose file:
+This docker image connects to ipv64 using curl to update your DDNS IP, just use this compose file:
 
 ```yaml
 services:
