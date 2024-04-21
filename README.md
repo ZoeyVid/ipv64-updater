@@ -16,3 +16,5 @@ services:
 #      - "IPv4=true"                           # enable/disable IPv4
 #      - "IPv6=true"                           # enable/disable IPv6
 ```
+
+you need to decide if you want to enable IPv4/IPv6 and you need to change DUK.
