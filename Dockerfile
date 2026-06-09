@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:labs
-FROM alpine:3.23.4
+FROM alpine:3.24.0
 COPY update.sh /usr/local/bin/update.sh
 COPY healthcheck.sh /usr/local/bin/healthcheck.sh
 RUN apk upgrade --no-cache -a && \
